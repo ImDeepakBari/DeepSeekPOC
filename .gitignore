@@ -1,0 +1,9 @@
+
+.env
+deepseek/
+*.pyc
+__pycache__/
+*.log
+*.env
+*.key
+.DS_Store
