@@ -1,12 +1,12 @@
 from selenium.webdriver.common.by import By
 
 from config.settings import Config
-from pages.base_page import BasePage
+from pages.base_page_v1 import BasePageV1
 
 
-class BankPage(BasePage):
+class BankPage(BasePageV1):
     LOCATORS = {
-        "username": (By.NAME, "username"),
+        "username": (By.NAME, "username12"),
         "password": (By.NAME, "password"),
         "login_btn": (By.XPATH, "//input[@value='Log In']")
     }

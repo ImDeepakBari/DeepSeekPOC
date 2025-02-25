@@ -1,0 +1,62 @@
+[
+  {
+    "timestamp": "2025-02-25T08:30:27.775627",
+    "test_case": "tests/test_demo.py::test_search (call)",
+    "element": "username",
+    "old_locator": {
+      "strategy": "name",
+      "value": "username12"
+    },
+    "new_locator": {
+      "strategy": null,
+      "value": null
+    },
+    "success": false,
+    "page_source": "failed_username_20250225_083027.html"
+  },
+  {
+    "timestamp": "2025-02-25T08:34:56.567344",
+    "test_case": "tests/test_demo.py::test_search (call)",
+    "element": "username",
+    "old_locator": {
+      "strategy": "name",
+      "value": "username12"
+    },
+    "new_locator": {
+      "strategy": null,
+      "value": null
+    },
+    "success": false,
+    "page_source": "failed_username_20250225_083456.html"
+  },
+  {
+    "timestamp": "2025-02-25T08:44:10.865234",
+    "test_case": "tests/test_demo.py::test_search (call)",
+    "element": "username",
+    "old_locator": {
+      "strategy": "name",
+      "value": "username12"
+    },
+    "new_locator": {
+      "strategy": null,
+      "value": null
+    },
+    "success": false,
+    "page_source": "failed_username_20250225_084410.html"
+  },
+  {
+    "timestamp": "2025-02-25T08:46:42.337629",
+    "test_case": "tests/test_demo.py::test_search (call)",
+    "element": "username",
+    "old_locator": {
+      "strategy": "name",
+      "value": "username12"
+    },
+    "new_locator": {
+      "strategy": null,
+      "value": null
+    },
+    "success": false,
+    "page_source": "failed_username_20250225_084642.html"
+  }
+]

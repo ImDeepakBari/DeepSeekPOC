@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62544359-5074-49c8-b448-3b6e2f9b3e28" name="Changes" comment="" />
+    <list default="true" id="62544359-5074-49c8-b448-3b6e2f9b3e28" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/bank.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/bank.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/reports/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/reports/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/healer.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/healer.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,10 +22,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2tVGGVHAe9vDbA42E3LslQmI5dm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -30,7 +39,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="advanced.settings" />
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_bank_pages.test_google_search">
+  <component name="RunManager" selected="Python tests.Python tests for test_demo.test_search">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="DeepSeekPOC" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -50,20 +59,6 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_api.test_api" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="DeepSeekPOC" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_api.test_api&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests for test_api.test_api_connection" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -108,6 +103,20 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Python tests for test_demo.test_search" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="DeepSeekPOC" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_demo.test_search&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for test_google.test_google_search" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="DeepSeekPOC" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -124,11 +133,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_demo.test_search" />
         <item itemvalue="Python tests.Python tests for test_bank_pages.test_google_search" />
         <item itemvalue="Python tests.Python tests for test_google.test_google_search" />
         <item itemvalue="Python tests.Python tests for test_api.test_local_api_healing_config" />
         <item itemvalue="Python tests.Python tests for test_api.test_api_connection" />
-        <item itemvalue="Python tests.Python tests for test_api.test_api" />
       </list>
     </recent_temporary>
   </component>
@@ -142,6 +151,17 @@
       <updated>1740429734100</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

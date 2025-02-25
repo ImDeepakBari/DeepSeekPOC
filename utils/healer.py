@@ -16,17 +16,24 @@ class DeepSeekLocatorHealer:
             "Authorization": f"Bearer {self.api_key}"
         }
 
-        prompt = f"""Analyze this page source and suggest the most reliable locator:
-        Page excerpt: {page_source[:3000]}
-        Element description: {element_description}
-        Respond ONLY with JSON format: {{"type": "xpath|css|id", "value": "selector"}}"""
+        prompt = f"""Given this HTML fragment:
+                    {page_source[:3000]}
+                    Generate RELIABLE locators for element described as: {element_description}
+                    Requirements:
+                    1. Prefer CSS over XPath
+                    2. Must be unique
+                    3. Avoid index-based selectors
+                    4. Prefer visible elements
+
+                    Return JSON format:
+                    {{"strategies": [{{"type": "css|xpath", "value": "selector", "confidence": 0-100}}]}}"""
 
         try:
             response = requests.post(
                 self.api_url,
                 headers=headers,
                 json={
-                    "model": "deepseek-coder",
+                    "model": "deepseek-r1-distill-qwen-7b",
                     "messages": [{"role": "user", "content": prompt}],
                     "temperature": 0.2
                 },
