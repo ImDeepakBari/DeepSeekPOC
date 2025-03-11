@@ -41,31 +41,82 @@ class HybridLocatorHealer:
             self.logger.error(f"BS4 healing failed: {str(e)}")
             return None
 
+    def _select_best_strategy(self, strategies):
+        if not strategies:
+            return None
+
+        valid_strategies = [s for s in strategies if self._validate_in_dom(s)]
+        return self._select_best_strategy(valid_strategies)
+
+        priority_order = [
+            'exact_match',
+            'number_variation',
+            'common_suffix',
+            'common_prefix',
+            'typo_fix'
+        ]
+
+        return sorted(
+            strategies,
+            key=lambda x: (
+                -priority_order.index(x['reason']),
+                -x['confidence']
+            )
+        )[0]
+
     def _heal_with_ai(self, page_source, description):
+
         try:
-            prompt = f"""Given this HTML fragment:
+
+            prompt = f"""Analyze this HTML fragment and suggest locator fixes:
             {page_source[:3000]}
-            Generate RELIABLE locators for element described as: {description}
+
+            Original locator problem: {description}
+
             Requirements:
-            1. Get all the identical locator similar as description
-            2. Use try and catch block for checking valid locator
-            3. Check for similar tag , id , name of locator
-            4. Use combination of siblings, parent to find out locator
-            4. Prefer visible elements
+            1. Identify attribute values that are close matches to the original
+            2. Check for these patterns in order:
+               - Exact substring matches (e.g., "username" in "username12")
+               - Common suffixes/prefixes (e.g., "_username", "username_input")
+               - Number variations (e.g., "username1", "username2")
+               - Typos (e.g., "usernmae", "user_name")
+            3. For name/id/class attributes:
+               a. Generate 3 variations of the original value
+               b. Check existence in DOM
+               c. Prioritize visible elements
+            4. Return only existing locators from the DOM
+
+            Example: If original is 'username12', suggest:
+            - name="username" (exact match)
+            - name="username1" (number variation)
+            - name="username_field" (common suffix)
 
             Return JSON format:
-            {{"strategies": [{{"type": "css|xpath", "value": "selector", "confidence": 0-100}}]}}"""
+            {{
+                "strategies": [
+                    {{
+                        "type": "name|xpath|css",
+                        "value": "selector",
+                        "confidence": 1-100,
+                        "reason": "match_type"
+                    }}
+                ]
+            }}"""
+
+
             response = requests.post(
                 self.ai_endpoint,
-                json={"model": "deepseek-r1-distill-qwen-7b", "messages": [{"role": "user", "content": prompt}]},
-                timeout=25
-            )
+                json={
+                    "model": "deepseek-coder",
+                    "messages": [{"role": "user", "content": prompt}],
+                    "temperature": 0.3
+                },
+                timeout=550)
 
-            return json.loads(response.json()['choices'][0]['message']['content'])['strategies'][0]
-
+            strategies = json.loads(response.json()['choices'][0]['message']['content'])['strategies']
+            return self._select_best_strategy(strategies)
         except Exception as e:
-            self.logger.error(f"AI healing failed: {str(e)}")
-            return None
+            pass
 
     def _fuzzy_text_match(self, soup, description):
         elements = soup.find_all(string=True)

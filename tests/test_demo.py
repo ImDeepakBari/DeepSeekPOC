@@ -5,6 +5,7 @@ from pages.bank import BankPage
 
 def test_search():
     driver = webdriver.Safari()
+    driver.maximize_window()
     driver.get("https://www.google.com")
 
     try:
